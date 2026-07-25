@@ -49,17 +49,18 @@ $$
 Now integrate both sides:
 
 $$
-\int_{-\pi}^{\pi}f(x)\sin(x)\,dx
-=
+\begin{aligned}
+\int_{-\pi}^{\pi} f(x)\sin(x)\,dx
+&=
 \int_{-\pi}^{\pi}
-\left(
+\Bigl(
 C_0\sin(x)
 +C_1\sin^2(x)
 +D_1\sin(x)\cos(x)
 +C_2\sin(2x)\sin(x)
 +\cdots
-\right)
-dx
+\Bigr)\,dx
+\end{aligned}
 $$
 
 Because sine and cosine functions are **orthogonal**, every cross-term becomes zero:
@@ -76,11 +77,13 @@ $$
 The only term that survives is
 
 $$
+\begin{aligned}
 \int_{-\pi}^{\pi}f(x)\sin(x)\,dx
-=
-C_1\int_{-\pi}^{\pi}\sin^2(x)\,dx
-=
-C_1\pi.
+&=
+C_1\int_{-\pi}^{\pi}\sin^2(x)\,dx \\
+&=
+C_1\pi
+\end{aligned}
 $$
 
 Therefore,
