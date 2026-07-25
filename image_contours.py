@@ -29,7 +29,7 @@ def contours_to_complex(contours : tuple):
 
 
 def main():
-    image = cv2.imread('./test-images/banana.png')
+    image = cv2.imread('./test-images/apple.png')
     if image is None:
         raise FileNotFoundError("Could not load image.")
     
