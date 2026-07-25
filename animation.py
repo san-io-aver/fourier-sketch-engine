@@ -5,7 +5,7 @@ WIDTH=1000
 HEIGHT=800
 
 origin = (WIDTH//2,HEIGHT//2)
-scale = 0.4
+scale = 0.7
 
 def draw(components):
     print(len(components))
@@ -14,7 +14,7 @@ def draw(components):
     screen = pygame.display.set_mode((WIDTH,HEIGHT))
     t=0
     clock = pygame.time.Clock()
-    path=[]
+    paths = [[] for _ in components]
     running = True
     
 
@@ -25,7 +25,7 @@ def draw(components):
                 running = False
 
         screen.fill((30,30,30))
-        for contour in components:
+        for i, contour in enumerate(components):
             center_x = origin[0]
             center_y = origin[1]
 
@@ -44,17 +44,18 @@ def draw(components):
                 # endpoint
                 center_x = x
                 center_y = y
-            pygame.draw.circle(screen, (255, 0, 0), (int(center_x),int(center_y)), 5)
-            path.append((center_x, center_y))
-        if len(path) > 1:
-            int_path = [(int(x), int(y)) for x, y in path]
-            pygame.draw.lines(
-                screen,
-                (0,255,255),
-                False,
-                int_path,
-                2
-            )    
+            pygame.draw.circle(screen, (150, 0, 0), (int(center_x),int(center_y)), 5)
+            paths[i].append((center_x, center_y))
+        for path in paths:
+            if len(path) > 1:
+                int_path = [(int(x), int(y)) for x, y in path]
+                pygame.draw.lines(
+                    screen,
+                    (255, 255, 255),
+                    False,
+                    int_path,
+                    2
+                ) 
         # t+=0.02
         t += 2 * math.pi / len(components[0])
         if t >= 2 * math.pi:

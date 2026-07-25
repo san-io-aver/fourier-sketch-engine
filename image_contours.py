@@ -10,6 +10,12 @@ def extract_contours(image : np.ndarray) -> tuple:
     edges = cv2.Canny(gray_image,CANNY_LOW,CANNY_HIGH)
 
     contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    MIN_AREA = 50
+
+    contours = [
+        c for c in contours
+        if cv2.contourArea(c) > MIN_AREA
+    ]    
     return contours
 
 
@@ -24,12 +30,19 @@ def contours_to_complex(contours : tuple):
             x = point[0][0]
             y = point[0][1]
             complex_points.append(complex(x,y))
+        cx = sum(p.real for p in complex_points) / len(complex_points)
+        cy = sum(p.imag for p in complex_points) / len(complex_points)
+
+        complex_points = [
+            complex(p.real - cx, p.imag - cy)
+            for p in complex_points
+        ]    
         complex_contours.append(complex_points)    
     return complex_contours
 
 
 def main():
-    image = cv2.imread('./test-images/apple.png')
+    image = cv2.imread('./test-images/incredible.png')
     if image is None:
         raise FileNotFoundError("Could not load image.")
     
