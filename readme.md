@@ -6,6 +6,9 @@ The project begins by extracting contours from an image using OpenCV. These cont
 
 The primary goal of this project is to understand the mathematics behind Fourier drawing rather than relying solely on existing libraries.
 
+## Working Demo
+![Fourier Animation](assets/apple_silh.gif)
+
 ## Features
 
 - Extract contours from images using OpenCV
@@ -21,9 +24,10 @@ The primary goal of this project is to understand the mathematics behind Fourier
 ```
 .
 ├── main.py
-├── contours.py
-├── fourier.py
 ├── animation.py
+├── fourier_components.py
+├── dft.py
+├── image_contours.py
 └── test-images/
 ```
 

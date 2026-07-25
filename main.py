@@ -3,7 +3,7 @@ import image_contours
 import dft
 import fourier_components
 import animation
-image = cv2.imread('./test-images/umb.png')
+image = cv2.imread('./test-images/apple.png')
 if image is None:
     raise FileNotFoundError("Could not load image.")
 

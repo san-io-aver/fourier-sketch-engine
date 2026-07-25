@@ -51,7 +51,7 @@ def draw(components):
                 int_path = [(int(x), int(y)) for x, y in path]
                 pygame.draw.lines(
                     screen,
-                    (255, 255, 255),
+                    (255, 215, 0),
                     False,
                     int_path,
                     2
